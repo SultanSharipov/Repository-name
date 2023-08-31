@@ -1,0 +1,31 @@
+import discord
+import random
+import os
+import requests
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+def get_duck_image_url():    
+    url = 'https://random-d.uk/api/random'
+    res = requests.get(url)
+    data = res.json()
+    return data['url']
+
+@bot.command()
+async def mem(ctx):
+    a = random.choice(os.listdir('images'), weight=[10, 20, 30, 40])
+    with open(f'images/{a}', 'rb') as f:
+        picture = discord.File(f)
+    await ctx.send(file=picture)
+
+@bot.command('duck')
+async def duck(ctx):
+    '''По команде duck вызывает функцию get_duck_image_url'''
+    image_url = get_duck_image_url()
+    await ctx.send(image_url)
+
+bot.run('MTEzOTE5NDY2NzkzODg4OTc4OQ.GKGb_p.xWQRGkckFAF60u5ehKTDtiVkl5CIUnnZ8kAheI')
