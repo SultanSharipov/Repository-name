@@ -1,31 +1,36 @@
-import discord
-import random
-import os
-import requests
-from discord.ext import commands
+<html>
+<head>
+    <title>Технологические зависимости</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    @keyframes color-change {
+    0% {
+      color: blue;
+    }
+  
+    50% {
+      color: red;
+    }
+  
+    100% {
+      color: blue;
+    }
+}
 
-intents = discord.Intents.default()
-intents.message_content = True
-
-bot = commands.Bot(command_prefix='$', intents=intents)
-
-def get_duck_image_url():    
-    url = 'https://random-d.uk/api/random'
-    res = requests.get(url)
-    data = res.json()
-    return data['url']
-
-@bot.command()
-async def mem(ctx):
-    a = random.choice(os.listdir('images'), weight=[10, 20, 30, 40])
-    with open(f'images/{a}', 'rb') as f:
-        picture = discord.File(f)
-    await ctx.send(file=picture)
-
-@bot.command('duck')
-async def duck(ctx):
-    '''По команде duck вызывает функцию get_duck_image_url'''
-    image_url = get_duck_image_url()
-    await ctx.send(image_url)
-
-bot.run('TOKEN')
+h1:hover {
+    animation: color-change 3s infinite;
+}
+</style>
+<body>
+    <iframe src="https://www.meteoblue.com/en/weather/widget/daily/ip_romania_675514?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=0&maxtemperature=0&mintemperature=0&windspeed=0&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 216px; height: 420px"></iframe>
+    <h1>Про технологическую зависимость</h1>
+    <p>Технологическая зависимость представляет собой разновидность нарушения импульсивного контроля, при котором человек испытывает вредное воздействие технологий в результате чрезмерного использования компьютера, интернета, видеоигр, мобильных устройств.</p>
+    <h2>Зависимость от технологий можно разбить на такие категории, как игровая зависимость, зависимость от социальных сетей, покупок, потребления видеоконтента, азартных игр.</h2>
+             <ul>
+                   <li>Точка</li>
+                   <li>Точка 2</li>
+             </ul>
+     <img src="https://top-fon.com/uploads/posts/2023-01/1674721180_top-fon-com-p-fon-dlya-prezentatsii-kompyuternaya-zavisi-17.jpg" alt="Image 1">
+</body>
+</html>
